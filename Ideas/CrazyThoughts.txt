@@ -1,0 +1,13 @@
+Use C# codes in Python:
+1. unmanaged exports to use DLLEXPORT in C# code which translates your .Net types into native types
+	https://sites.google.com/site/robertgiesecke/Home/uploads/unmanagedexports
+
+2.  Use ctypes
+	from array import *
+	from ctypes import *
+
+	[ComVisible(true)]
+	import clr  # ironpython
+	clr.AddReference('YourAssemblyName')
+	from YourNameSpace import YourClassName
+

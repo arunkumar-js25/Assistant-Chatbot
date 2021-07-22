@@ -1,0 +1,49 @@
+﻿Website : https://bitbucket.org/pydotnet/pydotnet/wiki/Home
+
+Please, read this page fully
+
+Yes, your .NET assemblies will work with PyDotnet (but only as long as they aren't troublesome)
+
+PyDotnet runs .NET CLR within Python process boundaries (via C++/CLI extensions)
+
+Make sure you understand how to load your assemblies: add_assemblies() and load_assembly() (see Using PyDotnet with .NET assemblies below)
+
+You MUST call load_assembly(TheAssembly) and then import TheNamespace in order to use ANY class defined in that TheNamespace in that TheAssembly
+Make sure you understand the difference between import dotnet and import dotnet.seamless
+
+NEVER EVER use from dotnet import *
+
+Make sure you install MSVCRT in correct version (see Installation below)
+
+IMPORTANT Python 3.6 Note: Please go to C:\Python36\Lib\site-packages\dotnet folder and rename:
+
+boost_python3-vc*-mt-1_64.dll → boost_python3-vc150-mt-1_64.dll
+boost_python-vc*-mt-1_64.dll → boost_python-vc150-mt-1_64.dll
+Please, also see THIS ISSUE
+
+Latest version only available for Python 2.7 and 3.6 64 bit (due to changes on PyPi I wasn't able to upload other releases)
+
+Make sure you read MSDN documentation if you trying to use Microsoft .NET classes
+
+Windows ONLY - Mac / Linux NOT SUPPORTED Please, if you convince Microsoft to release C++/CLI compiler for Mac / Linux then we can talk...
+
+
+clr -->
+#clr.AddReference(r'C:\Users\Arun Kumar\source\repos\Fellow-Beginner\PY2CS\bin\Debug\PY2CS')
+#from PY2CSDemo import *
+#v = Test()
+#print(v.add(1,2))
+#print(dir(clr))
+
+Ctypes -->
+#a = cdll.LoadLibrary(source)
+#testc.add(1,2)
+
+dotnet --> this supports only in 2.7 and 3.5 x64 bit
+
+dotnet.add_assemblies(source)
+dotnet.load_assembly('PY2CS')
+import PY2CS
+
+res = PY2CS.add(1,2)    
+print(res)

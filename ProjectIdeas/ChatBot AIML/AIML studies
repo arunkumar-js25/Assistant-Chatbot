@@ -1,0 +1,10 @@
+<star>: Used to match wildcard * character(s) in the <pattern> Tag.
+<srai>: Multipurpose tag, used to call/match the other categories.
+<random>: Used <random> to get random responses.
+<li>: Used to represent multiple responses.
+<set>: Used to set value in an AIML variable.
+<get>: Used to get value stored in an AIML variable.
+<that>: Used to respond based on the context.
+<topic>: Used to store a context so that later conversation can be done based on that context.
+<think>: Used to store a variable without notifying the user.
+<condition>: Similar to switch statements in a programming language. It helps bot to respond to match the input.
